@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Terapéutico del Tio Nepomuceno - v12 Final</title>
+    <title>Simulador Terapéutico del Tio Nepomuceno - v13 Final</title>
     <!-- jsPDF para exportar reportes clínicos -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
@@ -256,7 +256,7 @@
     </div>
 
     <h1 id="mainTitle">🐱⚡ Simulador Terapéutico del Tio Nepomuceno</h1>
-    <div class="subtitle" id="mainSub">Versión 12 Final — Precisión Metabólica, Costos, Guía y Redes</div>
+    <div class="subtitle" id="mainSub">Versión 13 Final — Precisión Metabólica, Costos, Guía y Redes</div>
     
     <div class="disclaimer" id="disclaimerBox">
         <strong>⚠️ Aviso Clínico:</strong> Herramienta avanzada de apoyo nutricional y simulación metabólica. No sustituye la valoración veterinaria presencial.
@@ -381,11 +381,13 @@
             </div>
 
             <div style="background: #2f3640; padding: 15px; border-radius: 6px; border: 1px solid #70a1ff;">
-                <h4 style="margin-top: 0; color: #70a1ff;">🐈 Cuidados Esenciales (Pelaje, Uñas y Dental)</h4>
+                <h4 style="margin-top: 0; color: #70a1ff;">🐈 Cuidados Esenciales y Bienestar</h4>
                 <p style="font-size: 0.88em; line-height: 1.5; color: #f1f2f6; margin-bottom: 0;">
-                    • <strong>Pelaje:</strong> Cepillado semanal (diario en razas de pelo largo) para evitar bolas de pelo (tricobezoares).<br>
-                    • <strong>Uñas:</strong> Corte cuidadoso de la punta transparente cada 3-4 semanas y rascadores firmes.<br>
-                    • <strong>Dental:</strong> Prevención de sarro con cepillado con pasta enzimática felina (¡nunca pasta de humanos!).
+                    • <strong>Pelaje:</strong> Cepillado semanal (diario en pelo largo) para evitar tricobezoares.<br>
+                    • <strong>Uñas:</strong> Corte de la punta transparente cada 3-4 semanas y rascadores firmes.<br>
+                    • <strong>Dental:</strong> Prevención de sarro con pasta enzimática felina (¡nunca de humanos!).<br>
+                    • <strong>Hidratación:</strong> Fomentar fuentes de agua fresca y estimular el líquido diario.<br>
+                    • <strong>Entorno:</strong> Espacios verticales y juego interactivo para reducir estrés.
                 </p>
             </div>
         </div>
@@ -501,17 +503,17 @@
         </div>
     </div>
 
-    <!-- RECUADRO APA INTERACTIVO -->
+    <!-- RECUADRO APA INTERACTIVO (CONCISO) -->
     <div class="apa-container">
         <div class="apa-header" onclick="toggleApaContent()">
-            <span id="apaHeaderTxt">📚 Referencias Científicas Avanzadas (Formato APA) — Ver Respaldos Clínicos</span>
+            <span id="apaHeaderTxt">📚 Referencias APA — Respaldos Clínicos</span>
             <span id="apaArrow">▼</span>
         </div>
         <div class="apa-content" id="apaContentBox">
-            <p><strong>1. Fundamentos de Nutrición y Requerimientos Energéticos:</strong> Case, L. P., et al. (2011). <em>Canine and Feline Nutrition</em>. Mosby Elsevier.</p>
-            <p><strong>2. Directrices de Hidratación y Manejo Renal:</strong> FEDIAF. (2021). <em>Nutritional Guidelines for Complete and Complementary Pet Food</em>.</p>
-            <p><strong>3. Perfil Aminoacídico y Selección de Proteínas:</strong> NRC. (2006). <em>Nutrient Requirements of Dogs and Cats</em>. National Academies Press.</p>
-            <p><strong>4. Fisiología Digestiva y Tolerancia a Fitonutrientes:</strong> Zoran, L. D. (2002). The carnivore connection to nutrition in cats. <em>JAVMA</em>.</p>
+            <p>• Case, L. P., Daristotle, L., Hayek, M. G., & Raasch, M. F. (2011). <em>Canine and Feline Nutrition</em>. Mosby Elsevier.</p>
+            <p>• FEDIAF. (2021). <em>Nutritional Guidelines for Complete and Complementary Pet Food</em>.</p>
+            <p>• NRC. (2006). <em>Nutrient Requirements of Dogs and Cats</em>. National Academies Press.</p>
+            <p>• Zoran, D. L. (2002). The carnivore connection to nutrition in cats. <em>JAVMA</em>, 221(11), 1559-1567.</p>
         </div>
     </div>
 
@@ -661,7 +663,7 @@
                            `⚖️ *Peso:* ${pesoMichi} kg%0A` +
                            `🍲 *Porción Sugerida:* ${porcionTotal}%0A` +
                            `⏰ *Hora Programada:* ${horaAlarmaInput}%0A%0A` +
-                           `_Generado desde el Simulador Terapéutico v12_`;
+                           `_Generado desde el Simulador Terapéutico v13_`;
 
         let urlWhatsApp = `https://api.whatsapp.com/send?text=${textoMensaje}`;
         window.open(urlWhatsApp, '_blank');
@@ -690,9 +692,9 @@
         playHappyMeow();
         const w = parseFloat(document.getElementById('historyWeightInput').value);
         if(!w || isNaN(w)) { alert('Ingresa un peso válido.'); return; }
-        let history = JSON.parse(safeStorage.getItem('cat_weight_history_v12') || '[]');
+        let history = JSON.parse(safeStorage.getItem('cat_weight_history_v13') || '[]');
         history.push({date: new Date().toLocaleDateString(), weight: w});
-        safeStorage.setItem('cat_weight_history_v12', JSON.stringify(history));
+        safeStorage.setItem('cat_weight_history_v13', JSON.stringify(history));
         renderWeightHistory();
         document.getElementById('historyWeightInput').value = '';
     }
@@ -700,13 +702,13 @@
     function clearWeightHistory() {
         playHappyMeow();
         if(confirm('¿Deseas borrar el historial?')) {
-            safeStorage.removeItem('cat_weight_history_v12');
+            safeStorage.removeItem('cat_weight_history_v13');
             renderWeightHistory();
         }
     }
 
     function renderWeightHistory() {
-        let history = JSON.parse(safeStorage.getItem('cat_weight_history_v12') || '[]');
+        let history = JSON.parse(safeStorage.getItem('cat_weight_history_v13') || '[]');
         const container = document.getElementById('weightHistoryList');
         if(history.length === 0) { container.innerHTML = '<span style="color: #718093;">Sin registros de peso.</span>'; return; }
         let html = '<ul style="margin: 0; padding-left: 20px;">';
@@ -755,15 +757,15 @@
             protein: document.getElementById('iProtein').value, symptom: document.getElementById('iSymptom').value,
             fruit: document.getElementById('iFruit').value
         };
-        let profiles = JSON.parse(safeStorage.getItem('cat_profiles_v12') || '{}');
+        let profiles = JSON.parse(safeStorage.getItem('cat_profiles_v13') || '{}');
         profiles[name] = profile;
-        safeStorage.setItem('cat_profiles_v12', JSON.stringify(profiles));
+        safeStorage.setItem('cat_profiles_v13', JSON.stringify(profiles));
         updateProfileSelect();
         alert(`¡Perfil de ${name} guardado!`);
     }
 
     function updateProfileSelect() {
-        let profiles = JSON.parse(safeStorage.getItem('cat_profiles_v12') || '{}');
+        let profiles = JSON.parse(safeStorage.getItem('cat_profiles_v13') || '{}');
         const sel = document.getElementById('profileSelect');
         sel.innerHTML = '<option value="">Cargar perfil...</option>';
         for(let key in profiles) sel.innerHTML += `<option value="${key}">${key}</option>`;
@@ -773,7 +775,7 @@
         playHappyMeow();
         const name = document.getElementById('profileSelect').value;
         if(!name) return;
-        let profiles = JSON.parse(safeStorage.getItem('cat_profiles_v12') || '{}');
+        let profiles = JSON.parse(safeStorage.getItem('cat_profiles_v13') || '{}');
         const p = profiles[name];
         if(p) {
             document.getElementById('iName').value = p.name;
@@ -817,12 +819,12 @@
         playHappyMeow();
         const stock = document.getElementById('pantryStockInput').value;
         if(!stock) return;
-        safeStorage.setItem('cat_pantry_stock_v12', stock);
+        safeStorage.setItem('cat_pantry_stock_v13', stock);
         document.getElementById('pantryStatus').innerText = `Stock registrado: ${stock} kg`;
         document.getElementById('pantryStockInput').value = '';
     }
     window.addEventListener('DOMContentLoaded', () => {
-        const s = safeStorage.getItem('cat_pantry_stock_v12');
+        const s = safeStorage.getItem('cat_pantry_stock_v13');
         if(s) document.getElementById('pantryStatus').innerText = `Stock registrado: ${s} kg`;
     });
 
@@ -900,7 +902,7 @@
 
         doc.setFillColor(boxCol[0], boxCol[1], boxCol[2]); doc.rect(8, 8, 194, 24, "F");
         doc.setTextColor(accentCol[0], accentCol[1], accentCol[2]); doc.setFont("helvetica", "bold"); doc.setFontSize(10);
-        doc.text("SIMULADOR TERAPEUTICO DEL TIO NEPOMUCENO — REPORTE v12", 105, 23, { align: "center" });
+        doc.text("SIMULADOR TERAPEUTICO DEL TIO NEPOMUCENO — REPORTE v13", 105, 23, { align: "center" });
 
         doc.setTextColor(textCol[0], textCol[1], textCol[2]); doc.setFontSize(14);
         doc.text("SIMULACION METABOLICA AVANZADA Y COSTOS", 105, 42, { align: "center" });
@@ -937,7 +939,7 @@
 
         doc.setFontSize(7.5); doc.setTextColor(mutedCol[0], mutedCol[1], mutedCol[2]);
         doc.text("Referencias APA: Case et al. (2011) | FEDIAF (2021) | NRC (2006) | Zoran (2002)", 105, 268, { align: "center" });
-        doc.text("Simulador Terapéutico del Tio Nepomuceno - v12 Final.", 105, 274, { align: "center" });
+        doc.text("Simulador Terapéutico del Tio Nepomuceno - v13 Final.", 105, 274, { align: "center" });
 
         return doc.output('blob');
     }
@@ -948,7 +950,7 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = "Reporte_Tio_Nepomuceno_v12_" + currentSimulation.name + ".pdf";
+        a.download = "Reporte_Tio_Nepomuceno_v13_" + currentSimulation.name + ".pdf";
         a.click();
     }
 </script>
