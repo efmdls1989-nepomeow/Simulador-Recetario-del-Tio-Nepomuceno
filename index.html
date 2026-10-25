@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Terapéutico del Tio Nepomuceno - v12</title>
+    <title>Simulador Terapéutico del Tio Nepomuceno - v12 Final</title>
     <!-- jsPDF para exportar reportes clínicos -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
@@ -25,7 +25,7 @@
         }
         .top-bar {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             margin-bottom: 15px;
             flex-wrap: wrap;
@@ -212,7 +212,7 @@
 <body>
 
 <div class="container">
-    <!-- Selector de Paleta de Colores e Idioma -->
+    <!-- Selector de Paleta de Colores -->
     <div class="top-bar">
         <div style="display: flex; align-items: center; gap: 8px;">
             <label for="paletteSelect" id="lblPalette" style="margin: 0; font-size: 0.9em;">🎨 Paleta:</label>
@@ -222,21 +222,6 @@
                 <option value="theme-mint">Mint Fresh (Menta Luminosa)</option>
                 <option value="theme-solar">Solar Warmth (Sol Radiante)</option>
                 <option value="theme-sky">Sky Breeze (Brisa Celeste)</option>
-            </select>
-        </div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-            <label for="langSelect" id="lblLang" style="margin: 0; font-size: 0.9em;">Idioma:</label>
-            <select id="langSelect" class="lang-box" onchange="changeLanguage()">
-                <option value="es" selected>Español (predeterminado)</option>
-                <option value="en">Ingles</option>
-                <option value="de">Aleman</option>
-                <option value="ru">Ruso</option>
-                <option value="zh">Chino</option>
-                <option value="ja">Japones</option>
-                <option value="pt">Portugues</option>
-                <option value="fr">Frances</option>
-                <option value="it">Italiano</option>
-                <option value="pl">Polaco</option>
             </select>
         </div>
     </div>
@@ -271,7 +256,7 @@
     </div>
 
     <h1 id="mainTitle">🐱⚡ Simulador Terapéutico del Tio Nepomuceno</h1>
-    <div class="subtitle" id="mainSub">Versión 12 — Precisión Metabólica, Costos, Guía de Cuidados y Redes</div>
+    <div class="subtitle" id="mainSub">Versión 12 Final — Precisión Metabólica, Costos, Guía y Redes</div>
     
     <div class="disclaimer" id="disclaimerBox">
         <strong>⚠️ Aviso Clínico:</strong> Herramienta avanzada de apoyo nutricional y simulación metabólica. No sustituye la valoración veterinaria presencial.
@@ -533,7 +518,7 @@
 </div>
 
 <script>
-    // Sistema seguro de almacenamiento para evitar bloqueos por privacidad o modo incógnito
+    // Sistema seguro de almacenamiento
     const safeStorage = {
         getItem: function(key) {
             try { return localStorage.getItem(key); } catch(e) { return null; }
@@ -568,26 +553,9 @@
     }
     window.addEventListener('DOMContentLoaded', fetchExchangeRate);
 
-    const dict = {
-        es: {
-            lblPalette: "🎨 Paleta:",
-            lblLang: "Idioma:",
-            mainTitle: "🐱⚡ Simulador Terapéutico del Tio Nepomuceno",
-            mainSub: "Versión 12 — Precisión Metabólica, Costos, Guía de Cuidados y Redes",
-            disclaimer: "⚠️ Aviso Clínico: Herramienta avanzada de apoyo nutricional y simulación metabólica. No sustituye la valoración veterinaria presencial."
-        }
-    };
-
     function changePalette() {
         playHappyMeow();
         document.body.className = document.getElementById('paletteSelect').value;
-    }
-
-    function changeLanguage() {
-        const d = dict['es'];
-        document.getElementById('lblLang').innerText = d.lblLang;
-        document.getElementById('mainTitle').innerText = d.mainTitle;
-        document.getElementById('mainSub').innerText = d.mainSub;
     }
 
     function toggleAmbientMusic() {
@@ -969,7 +937,7 @@
 
         doc.setFontSize(7.5); doc.setTextColor(mutedCol[0], mutedCol[1], mutedCol[2]);
         doc.text("Referencias APA: Case et al. (2011) | FEDIAF (2021) | NRC (2006) | Zoran (2002)", 105, 268, { align: "center" });
-        doc.text("Simulador Terapéutico del Tio Nepomuceno - v12.", 105, 274, { align: "center" });
+        doc.text("Simulador Terapéutico del Tio Nepomuceno - v12 Final.", 105, 274, { align: "center" });
 
         return doc.output('blob');
     }
